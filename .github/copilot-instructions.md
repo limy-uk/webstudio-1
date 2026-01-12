@@ -57,6 +57,14 @@ const { internalUtility } = __testing__;
 
 Don't create separate utility files just for testing.
 
+## Context Gathering
+
+- When asked "what's implemented" or "what's missing", always read the main implementation files completely first before searching for specific items
+- Don't rely solely on grep searches for property names - read the actual UI components to see what controls exist
+- When checking feature completeness, look at the component hierarchy (e.g., if checking Grid, read layout.tsx completely, then follow the component imports)
+- Prefer reading large file ranges (100-200 lines at a time) over multiple small reads
+- After initial file reads, use targeted searches to verify specific details
+
 ## Debugging
 
 - When user repeatedly asks to fix the same issue, ask permission to add logs
@@ -66,3 +74,5 @@ Don't create separate utility files just for testing.
 ## UI/UX
 
 - Never decide on implementation details around UI and UX yourself, always ask user and provide choices
+- If user gives specific instructions on how to implement UI (e.g., "reuse this control", "use this pattern"), never override those instructions with your own approach
+- When errors occur with user's requested approach, report the error and ask how to proceed rather than switching to a different implementation
